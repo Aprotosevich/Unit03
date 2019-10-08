@@ -8,7 +8,6 @@ package by.pvt.epam.task2;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Comparator;
 import java.util.GregorianCalendar;
 
 public class Main {
@@ -16,21 +15,11 @@ public class Main {
         Main main = new Main();
         Train[] array = new Train[5];
         main.fillTrainArray(array);
+        TrainService trainService = new TrainService();
 
-        System.out.println(Arrays.toString(array));
+        trainService.printArrayByDestination(array);
 
-        //main.sortArrayByTrainNumb(array);
-        //main.sortArrayByDestination(array);
-
-        System.out.println(Arrays.toString(array));
-    }
-
-    private void sortArrayByDestination (Train[] array) {
-        Arrays.sort(array, Comparator.comparing(Train::getDestination).thenComparing(Train::getDepartureTime));
-    }
-
-    private void sortArrayByTrainNumb (Train[] array) {
-        Arrays.sort(array, Comparator.comparing(Train::getTrainNumber));
+        trainService.printArrayByTrainNum(array);
     }
 
     private void fillTrainArray(Train[] array) {

@@ -2,6 +2,8 @@ package by.pvt.epam.task5;
 
 /* Класс Customer: id, фамилия, имя, отчество, адрес, номер кредитной карточки, номер банковского счета. */
 
+import java.util.Objects;
+
 public class Customer {
 
     private int id;
@@ -89,5 +91,24 @@ public class Customer {
         return "Customer: " + secondName + ' ' + firstName + ' ' + thirdName +
                 ", address: " + address +
                 ", creditCardNumber: " + creditCardNumber + ", bancAccountNumber: " + bankAccountNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id &&
+                creditCardNumber == customer.creditCardNumber &&
+                Objects.equals(secondName, customer.secondName) &&
+                Objects.equals(firstName, customer.firstName) &&
+                Objects.equals(thirdName, customer.thirdName) &&
+                Objects.equals(address, customer.address) &&
+                Objects.equals(bankAccountNumber, customer.bankAccountNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, secondName, firstName, thirdName, address, creditCardNumber, bankAccountNumber);
     }
 }

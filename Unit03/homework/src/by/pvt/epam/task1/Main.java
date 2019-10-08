@@ -4,37 +4,18 @@ package by.pvt.epam.task1;
         успеваемость (массив из пяти элементов). Создайте массив из десяти элементов такого типа.
         Добавьте возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 9 или 10.*/
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         Main main = new Main();
+        StudentService studentService = new StudentService();
         Student[] array = new Student[10];
         main.fillArrayWithStudents(array);
 
-        List<Student> excellentStudentsList = main.getExcellentStudentsList(array);
+        List<Student> excellentStudentsList = studentService.getExcellentStudentsList(array);
 
-        main.printStudentsList(excellentStudentsList);
-    }
-
-    private void printStudentsList(List<Student> excellentStudentsList) {
-        excellentStudentsList.forEach(n ->
-                System.out.println("Student name: " + n.getName() + " group name: " + n.getGroupNum()));
-    }
-
-    private List<Student> getExcellentStudentsList(Student[] array) {
-        List<Student> excellentList = new ArrayList<>();
-
-        Arrays.stream(array)
-                .filter(n ->
-                        n.getProfress().length == Arrays.stream(n.getProfress()).filter(t -> t >= 9).count())
-                /* Проходим по всему массиву студентов и сравниваем у каждого студента длину общего
-                массива оценок с длинной массива отсортированных по правилу t >= 9 оценок */
-                .forEach(excellentList::add);
-
-        return excellentList;
+        studentService.printStudentsList(excellentStudentsList);
     }
 
     private void fillArrayWithStudents (Student[] array) {

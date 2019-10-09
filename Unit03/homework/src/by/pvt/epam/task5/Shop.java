@@ -14,6 +14,10 @@ public class Shop {
         return customerList;
     }
 
+    public void setCustomerList(List<Customer> customerList) {
+        this.customerList = customerList;
+    }
+
     // ... other Shop data,methods etc.
 
 }

@@ -6,12 +6,8 @@ import java.util.List;
 
 public class StudentService {
 
-    public void printStudentsList(List<Student> excellentStudentsList) {
-        excellentStudentsList.forEach(n ->
-                System.out.println("Student name: " + n.getName() + " group name: " + n.getGroupNum()));
-    }
-
     public List<Student> getExcellentStudentsList(Student[] array) {
+
         List<Student> excellentList = new ArrayList<>();
 
         Arrays.stream(array)

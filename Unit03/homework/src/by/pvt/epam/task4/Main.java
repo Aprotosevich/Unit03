@@ -7,16 +7,16 @@ package by.pvt.epam.task4;
 
 public class Main {
     public static void main(String[] args) {
-        MyTime myTime = new MyTime();
-        myTime.printTime();
+        Time time = new Time();
+        System.out.println(time.takeBeatifulPrint());
 
-        myTime.waitFor(5,3,78);
-        myTime.printTime();
+        time.waitFor(5,3,78);
+        System.out.println(time.takeBeatifulPrint());
 
-        myTime.setHours(4);
-        myTime.printTime();
+        time.setHours(4);
+        System.out.println(time.takeBeatifulPrint());
 
-        myTime.setHours(50);
-        myTime.printTime();
+        time.setHours(50);
+        System.out.println(time.takeBeatifulPrint());
     }
 }

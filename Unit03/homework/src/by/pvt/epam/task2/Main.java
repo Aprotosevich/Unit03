@@ -17,9 +17,19 @@ public class Main {
         main.fillTrainArray(array);
         TrainService trainService = new TrainService();
 
-        trainService.printArrayByDestination(array);
+        main.printArrayByDestination(array, trainService);
 
-        trainService.printArrayByTrainNum(array);
+        main.printArrayByTrainNum(array, trainService);
+    }
+
+    private void printArrayByDestination(Train[] array, TrainService trainService) {
+        trainService.sortArrayByDestination(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    private void printArrayByTrainNum(Train[] array, TrainService trainService) {
+        trainService.sortArrayByTrainNumb(array);
+        System.out.println(Arrays.toString(array));
     }
 
     private void fillTrainArray(Train[] array) {

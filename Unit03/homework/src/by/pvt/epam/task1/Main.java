@@ -15,7 +15,12 @@ public class Main {
 
         List<Student> excellentStudentsList = studentService.getExcellentStudentsList(array);
 
-        studentService.printStudentsList(excellentStudentsList);
+        main.printStudentsList(excellentStudentsList);
+    }
+
+    private void printStudentsList(List<Student> excellentStudentsList) {
+        excellentStudentsList.forEach(n ->
+                System.out.println("Student name: " + n.getName() + " group name: " + n.getGroupNum()));
     }
 
     private void fillArrayWithStudents (Student[] array) {

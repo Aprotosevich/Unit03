@@ -14,16 +14,20 @@ public class Main {
         Shop shop = new Shop();
         main.fillRepoWithCustomers(shop);
 
-        CustomerService customerService = new CustomerService();
-        customerService.setCustomerList(shop.getCustomerList());
+        CustomerListService customerService = new CustomerListService();
 
-        customerService.printAllCustomers();
-        System.out.println("=============");
-        customerService.printCustomersInABC();
-        System.out.println("=============");
-        customerService.printCustomersWithValidCCN(4000_0000_0000_0000L, 6000_0000_0000_0000L);
+        main.printAllCustomers(shop);
+
+        customerService.sortCustomersInABC(shop);
+        main.printAllCustomers(shop);
+
+        customerService.sortCustomersWithValidCCN(shop, 4000_0000_0000_0000L, 6000_0000_0000_0000L);
+        main.printAllCustomers(shop);
     }
 
+    private void printAllCustomers(Shop shop) {
+        shop.getCustomerList().forEach(System.out::println);
+    }
 
     private void fillRepoWithCustomers(Shop customers) {
         customers.addCustomer(new Customer(1,
